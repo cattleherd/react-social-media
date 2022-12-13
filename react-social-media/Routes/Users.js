@@ -33,13 +33,20 @@ router.get('/api/login', function(req, res) {
 
 //login route, if successful login user is stored in req.user
 router.post('/api/login', passport.authenticate('local'), (req,res)=>{
-  res.send(req.user)
+  try{
+    res.send(req.user)
+  }catch{err=>{
+    res.send(403, {
+      error: "wrong creds"
+});
+  }}
+  
 })
 
 
 router.get('/api/logout', function (req,res){
     req.logout();
-    res.redirect('/login')
+    res.redirect('/')
 });
 
 

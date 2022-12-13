@@ -3,6 +3,7 @@ import { Person, Search, Notifications, Chat } from '@material-ui/icons'
 import { Context } from '../../contextapi/Context'
 import { useEffect, useContext,useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Logoutbutton from '../logoutButton/logoutbutton'
 import axios from 'axios'
 
 
@@ -33,7 +34,7 @@ export default function Topbar({ home, profile, messenger }){
             </div>
                 {/* style login button responsiveness of topbar wether topbar rendered on homepage, or messenger page*/}
                 <div className={ home || profile ? `center homeandprofile` : messenger ? 'center messengerlogout' : 'center' }>
-                    <a className='logoutbutton' href='/users/api/logout'>Logout</a>
+                    <Logoutbutton/>
                 </div>
         </div>
     )

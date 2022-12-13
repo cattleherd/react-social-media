@@ -19,9 +19,6 @@ const password = useRef()
 const LoginUser = async function(userCredentials){
     try{
         await axios({
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
             method: "POST",
             data:userCredentials,
             withCredentials: true,
