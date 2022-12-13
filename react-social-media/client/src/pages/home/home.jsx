@@ -18,9 +18,7 @@ export default function Home(){ //passing userId and user from app component
         <Topbar home={true} profile={true}/>
         <div className="home-container">
             <div className="content">
-                <div className='leftbar'><Leftsidebar /></div>
                 <div style={{flexGrow:'1'}}><Timeline/></div>
-                <div className='rightbar'><Rightbar /></div>
             </div>
         </div>
         </>

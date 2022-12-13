@@ -23,7 +23,7 @@ const http = require('http')
 
 const server = http.createServer(app)
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 const io = new Server(server, {
     cors: {
@@ -154,9 +154,9 @@ app.use('/conversations', conversationRoutes)
 
 
 //all other routes must use routes in client, needed for production (heroku deployment)
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
+//app.get("*", function (request, response) {
+  //response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+//});
 
 //socketio--------------------------------------------------------------------
 
