@@ -1,9 +1,8 @@
 import React, { createContext, useReducer, useEffect, useState} from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-export const Context = createContext('default') //creates context object using the above START state as initial state
+export const Context = createContext('default') //creates context object with default value
                                      
 
 
@@ -23,11 +22,12 @@ export const Provider = ({children})=>{
                 setCurrentUser(res.data)
             })
         }catch(err){
-            console.log('error in context api')
+            console.log('user is not logged in')
         }
         
     }
 
+    //provide fetchUser and currentUser to all children
     return (
         <Context.Provider value={{ fetchUser, currentUser }}>
             {children}

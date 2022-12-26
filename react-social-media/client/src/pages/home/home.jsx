@@ -7,7 +7,6 @@ import './home.css'
 import Topbar from '../../components/topbar/topbar'
 import Timeline from '../../components/timeline/timeline'
 import Hamburger from '../../components/hamburgermenu/hamburger'
-import Footer from '../../components/footer/footer'
 
 
 
@@ -18,6 +17,7 @@ export default function Home(){ //passing userId and user from app component
         <Topbar home={true} profile={true}/>
         <div className="home-container">
             <div className="content">
+                <Leftsidebar/>
                 <div style={{flexGrow:'1'}}><Timeline/></div>
             </div>
         </div>

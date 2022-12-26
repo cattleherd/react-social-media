@@ -11,10 +11,9 @@ import {
 import Message from './pages/messages/messages'
 import { Context } from './contextapi/Context';
 import { useContext, useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function App() {
-  //checks if theres a user in session, then stores it in context. Empty array so its renders donly once
+  //checks if theres a user in session, then stores it in context. Empty array so its renders only once
   const {currentUser, fetchUser} = useContext(Context) //grabs the state from context
   
   //-------updates the current user in context every time route is switched, or page is refreshed.---------

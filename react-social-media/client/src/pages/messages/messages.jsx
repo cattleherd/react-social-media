@@ -2,12 +2,11 @@ import Topbar from '../../components/topbar/topbar'
 import Messages from '../../components/messages/messages'
 import Convos from '../../components/convos/convos'
 import './messages.css'
-import {useState, useRef, useEffect, useContext} from 'react'
+import {useState, useRef, useEffect, useContext, React} from 'react'
 import { Context } from '../../contextapi/Context';
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import { io } from "socket.io-client";
-import React from 'react'
 import { elastic as Menu } from 'react-burger-menu'
 import Skeleton from 'react-loading-skeleton'
 
@@ -46,6 +45,9 @@ export default function Message() {
 
   //detect when component is finished rendering
   const [loading, setLoading] = useState(true)
+
+  const [friendDiscrepancy, setFriendDiscrepancy] = useState(false)
+
 
   //store socket url in useRef state
   const socket = useRef()
@@ -113,7 +115,15 @@ export default function Message() {
   //store friends list in state 
   //friends are distinguished if a user is following someone, and that person is also following them back.
   useEffect(()=>{
-    currentUser && currentUser.followingCount.map(e=>{if(currentUser?.followerCount.includes(e)){setFriends((prev)=>[...prev,e])}})
+    if(currentUser){
+      let friendlist = []
+      currentUser.followingCount.forEach(e=>{
+        if(currentUser.followerCount.includes(e)){
+          friendlist.push(e)
+        }
+      })
+      setFriends(friendlist)
+    }
   },[currentUser]) 
 
   //store user thats logged in, into socketio server, to track whos online (connected)
@@ -121,7 +131,7 @@ export default function Message() {
   //sends storeuser event to server, which handles storing user info, and friends info, and doing important things behind the scenes.
   useEffect(()=>{
       currentUser && friends && socket?.current.emit('storeUser', ({userId:currentUser._id,friends:friends}) )
-  }, [friends])
+  }, [currentUser])
 
 
   //this hook listens to see if incomingMessage gets updated, then it updates message object
@@ -183,64 +193,78 @@ export default function Message() {
     }
   },[Selected])
 
-  //store friend conversations of loggedin user, in state
-  //great way to learn useEffect hooks, was very difficult to get this hook right
+  //this hook is used to get all conversations of active friends, and update conversations in backend if friends were recently added
   useEffect(()=>{
-    //this hook looks to see if its a new user and no convos created yet
-    try{
-      let pendingconvos = []
-      const getConversations = async function(){
-        //must first wait for currentUser to load from context, and friends list to be loaded to state
-        //query server to get all open conversations of user
-        currentUser && friends && await axios.get(`/conversations/${currentUser._id}`).then(res=>{
-          //if there is no conversation data from currentuser (res.data.length === 0)
-          //it will map over friends list, then create a conversation
-          if(res.data.length === 0 && friends.length > 0 && currentUser){
-            friends.map(async e=>await axios.post('/conversations', {
+
+    let getConversations = async function(){
+
+      let friendslist = friends //active friends list
+
+      let existingconvos = [] //will store a list of userids of active friends
+
+      currentUser && await axios.get(`/conversations/${currentUser._id}`).then(res=>{
+        let convos = res.data
+        let convos2 = [] //list of convos of active friends (filtering out convos of people that are no longer friends)
+        
+        //this function creates a list of userids of active friends stored in existingconvos array
+        convos.forEach(convo=>{
+          for(let i = 0; i < friendslist.length; i++){
+            if(convo.people.includes(friendslist[i])){
+              existingconvos.push(friendslist[i])
+            }
+          }
+        })
+
+        //this function creates a list of convos of active friends stored in convos2 array
+        friendslist.forEach(friend=>{
+          for(let i = 0 ; i < convos.length; i++){
+            if(convos[i].people.includes(friend)){
+              convos2.push(convos[i])
+            }
+          }
+        })
+
+        setConversations(convos2) //set conversation state
+
+        //--------------------------this next chunk is used to check if new friends were added---------//
+        // if a friend recently added it will then create a conversation object for each new friend
+        //this is done
+
+        //differences checks to see if the length of active friends is longer than length of active convos
+        let differences = friendslist.filter(x=>!existingconvos.includes(x))
+        
+        //if there are more active friends than convos the code below iterates over each friend and creates a conversation object
+        //promise is used since we need to make multiple axios calls 
+        if(differences.length > 0 && currentUser){
+
+          function getAllResponses(differences){
+            return Promise.all(differences.map(fetchData))
+          }
+          
+          async function fetchData(newFriend){
+            return (axios.post('/conversations', {
               senderId:currentUser._id,
-              receiverId: e 
-            }).then(res=>{
-              pendingconvos.push(res.data)
-            }))
+              receiverId: newFriend 
+            })).then(function(res){
+              return res.data
+            })
           }
-        //set conversation state with newly created conversation data (possibly new user), or data from server
-      })
-      setConversations(pendingconvos)
-    }
-    getConversations()
-  }catch(err){alert(err)}
-  //since friends is derived from currentUser, its better to use as dependancy
-  },[friends])  
 
-  useEffect(()=>{
-    //this hook is used if user already has conversations
-    try{
-      let pendingconvos = []
-      const getConversations = async function(){
-        //must first wait for currentUser to load from context, and friends list to be loaded to state
-        //query server to get all open conversations of user
-        currentUser && friends && await axios.get(`/conversations/${currentUser._id}`).then(res=>{
-          //pendingconvos will have all conversations of friends
-          //then conversation state will be updated with pendingconvo
-          //if user has conversations (res.data.length > 0), it will map over the conversations
-          //then it will check to see if that conversation is a friend conversation
-          if(res.data.length > 0){
-            res.data.map(async conversation=>{
-              for(let i=0; i<friends.length;i++){
-                if(conversation.people.includes(friends[i])){
-                  pendingconvos.push(conversation)
-                }
-              }})
-          }
-        //set conversation state with newly created conversation data (possibly new user), or data from server
-      })
-      setConversations(pendingconvos)
-    }
-    getConversations()
+          //then conversation state is updated using setFriendDiscrepancy, which is added as dependency
+          getAllResponses(differences).then(res=>setFriendDiscrepancy(true))    
 
-  }catch(err){alert(err)}
-  //since friends is derived from currentUser, its better to use as dependancy
-  },[friends])  
+        }
+
+        //---------------------------------------------------
+
+      })
+     
+    }
+    
+    getConversations()
+  
+  },[currentUser,friendDiscrepancy])
+
 
   return (
   <>
@@ -252,6 +276,8 @@ export default function Message() {
           <div className="convoTop2">
             <input className='searchFriends' style={{border:'0.5px solid gray'}} type="text" placeholder='Search your friends' />
           </div>
+
+
           {Conversations && Conversations?.map((e,i)=>(
             /*stores selected conversation in state (Selected state)*/
             <div onClick={()=>{setSelected(e)}} key={i} className='menubottom'>

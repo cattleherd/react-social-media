@@ -1,7 +1,7 @@
 import React from 'react'
 import './hamburger.css'
 import { Person, Search, Chat } from '@material-ui/icons'
-import Recentfriends from '../../components/recentfriends/recentfriends'
+import Friendslist from '../friendslist/friendslist'
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Context } from '../../contextapi/Context';
@@ -24,18 +24,19 @@ export default function Hamburger({ profile }) {
     const unfollow = async function(){
         await axios.put(`/users/api/${profile.id}/unfollow`).then(res=>{window.location.reload()})
     }
-        //search profile of a person
-        const handleSearch = async function(){
-            await axios.get(`/users/api/username/${search}`).then(res=>{
-                if(res.data.username){
-                    navigate(`/profile/${res.data._id}`)
-                    window.location.reload()
-                }else{
-                    alert('user not found')
-                }
-            })
-        }
-        
+
+    //search profile of a person
+    const handleSearch = async function(){
+        await axios.get(`/users/api/username/${search}`).then(res=>{
+            if(res.data.username){
+                navigate(`/profile/${res.data._id}`)
+                 window.location.reload()
+            }else{
+                alert('user not found')
+            }
+        })
+    }
+    
   return (
     <>
       <Menu right>
@@ -61,9 +62,10 @@ export default function Hamburger({ profile }) {
                         </div>
                               {/*follow/unfollow buttons */}
                               {/* nested ternary, first checks to see if you are viewing your profile, since you cant follow yourself, it will render no button */}
-                              {/*first checks if currentuser is loaded into state (after first render cycle), then checks if the user is followed or not, conditionally rendering the buttons */}
+                              {/*first checks if logged in user is not the same as the profile your viewing (cant follow yourself)*/}
                               {currentUser && profile && currentUser._id !== profile.id ? 
-                                 (currentUser && !currentUser.followingCount.includes(profile.id) ? 
+                              /* then checks if the user is followed or not, conditionally rendering follow or unfollow button  */
+                                 (!currentUser.followingCount.includes(profile.id) ? 
                                     (<Button style={{width:'100%', marginTop:'30px'}} className='followbutton'  variant='primary' onClick={follow}>follow</Button>)
                                     : 
                                     (<Button style={{width:'100%', marginTop:'30px'}} className='followbutton' variant='primary'  onClick={unfollow}>unfollow</Button>)
@@ -72,15 +74,7 @@ export default function Hamburger({ profile }) {
                                  ('')
                               }
                     </div>
-                    <div className='friends'>
-                        <span className='title'>Friends List</span>
-                        <hr className='separator'/>
-                        <ul className="friendslist"> 
-                        {currentUser.followerCount && currentUser.followerCount.map(e=>(
-                            currentUser.followingCount.includes(e) && <Recentfriends key={e} id={e}/>
-                        ))}
-                        </ul>
-                    </div>
+                    <Friendslist/>
                 </div>
         </Menu>
     </>

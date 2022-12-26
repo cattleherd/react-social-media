@@ -7,42 +7,15 @@ import Topbar from '../../components/topbar/topbar'
 import './profile.css'
 import ProfileHeader from '../../components/profileheader/profileheader'
 import { useParams } from 'react-router-dom'
-import { useEffect, useContext, useState, useRef } from 'react'
-import axios from 'axios'
+import {useContext, useState, useRef } from 'react'
 import Feed from '../../components/feed/feed'
 import { Context } from '../../contextapi/Context'
 import Hamburger from '../../components/hamburgermenu/hamburger'
-import { io } from "socket.io-client";
-
-
-
 
 export default  function Profile(){
-//store socket url in useRef state
-  const socket = useRef()
   
   //grabs the current logged in user fron context api
   const {currentUser, fetchUser} = useContext(Context)
-
-
-  //store user thats logged in, into socketio server, to track whos online (connected)
-  //it runs when currentuser is loaded to state
-  //sends storeuser event to server, which will create a user object in socketio server containing the socketid and userid
-  useEffect(()=>{
-    currentUser && socket.current.emit('storeUser', currentUser._id )
-    }, [currentUser])
-
-
-      //setting up client socket
-  useEffect(()=>{
-    //set client socket to point to socket api
-    socket.current = io(`ws://rad-social.herokuapp.com`)
-    //listen to when theres incoming message, then store incoming message in state
-    //this is the 'outbound' message thats being sent to client after having been routed through server, and sent to the intended recipients
-  },[])
-
-
-
 
     //userid of person's profile you are viewing
     const userId = useParams();

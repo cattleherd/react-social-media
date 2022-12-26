@@ -10,14 +10,14 @@
     max-width: 350px;
 }
 
-  .leftbar{
+  .leftbar-container{
     display: none;
   }
 
-  @media screen and (min-width: 600px){
+  @media screen and (min-width: 720px){
 
-    .leftbar{
-        display: block;
+    .leftbar-container{
+        display: block ;
         min-width: 250px;
         margin-top: 50px;
         padding: 10px;

@@ -62,6 +62,14 @@
     display: flex;
 }
 
+.links{
+    margin-left: 15px;
+}
+
+.search {
+    margin-left: 15px;
+}
+
 .menu-item{
     padding-left: 3px !important;
 }
