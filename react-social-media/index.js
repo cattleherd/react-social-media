@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3001
 
 const io = new Server(server, {
     cors: {
-        origin: `http://rad-social.herokuapp.com/:${PORT}`,
+        origin: `https://rad-social.herokuapp.com/:${PORT}`,
     }
 }, console.log('connected'));
 
