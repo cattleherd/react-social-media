@@ -23,7 +23,7 @@ const LoginUser = async function(userCredentials){
             data:userCredentials,
             withCredentials: true,
             url:'/users/api/login',
-            headers: { "Content-Type": "multipart/form-data" },
+            headers: {"Access-Control-Allow-Origin": "*"}
             //if response is successful, updates user stored in context, and fetches the user from context
         }).then(res=>{
             fetchUser()
