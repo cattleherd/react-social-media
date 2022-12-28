@@ -2,3 +2,5 @@
 node_modules
 #no env
 .env
+#no package json
+package.json
