@@ -24,3 +24,7 @@
     text-decoration: none;
     color: #c3c2ba;
 }
+
+.friend-item{
+    display: flex;
+}

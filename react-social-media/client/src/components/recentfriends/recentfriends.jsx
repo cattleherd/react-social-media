@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 
 
-export default function Recentfriends({ id }){
+export default function Recentfriends({ id }){ //id is a prop passed from friendslist component which is the id of a friend
     const [user, setUser] = useState(null)
 
     //hook to grab the user of each friend, and store it in user state
@@ -31,9 +31,9 @@ export default function Recentfriends({ id }){
         //render friend information
         <div className='Friend'>
             {user ? (     
-            <li>
+            <li className='friend-item'>
                 <a className='link' href={`/profile/${id}`}>
-                {user && user?.coverPicture ? 
+                {user && user.profilePicture ? 
                     (<img src={user.profilePicture} alt="" className="friendprofilepic" />) : 
                     (<img src='/assets/profile.png' alt="" className="friendprofilepic" />)
                 }

@@ -40,11 +40,6 @@ export const friends = [
         img: `/person/8.jpeg`,
         username: 'Harvey David'
     },
-    {
-        id: 9,
-        img: `/person/9.jpeg`,
-        username: 'Jo momma'
-    }
 ]
 
 export const Posts = [
