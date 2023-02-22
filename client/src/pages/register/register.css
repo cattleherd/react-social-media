@@ -1,0 +1,130 @@
+.register-container{
+    height: 100vh !important;
+}
+
+.register-wrapper{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #002920;
+}
+
+.register-form-wrapper{
+    display: flex;
+    flex: 6;
+    flex-direction: column;
+    align-items: center;
+    background-color: #004233;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.11);
+    margin-left: 100px;
+}
+
+.separator{
+    width: 80%;
+}
+
+.form-item{
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(186, 186, 186);
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+.form-item::placeholder{
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.slogancaption{
+    font-size: 1.2rem;
+}
+
+.slogan{
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: aquamarine !important;
+    position: absolute;
+    z-index: 50;
+    margin-top: 40px;
+}
+.forgot{
+    color: blue;
+    margin-top: 10px;
+}
+.registerbuttons{
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid aquamarine !important;
+    background-color: #007259 !important;
+    color: aquamarine !important;
+}
+.registerbuttons:hover{
+    scale: 105%;
+    transition: 250ms;
+}
+
+.circle{
+    background-color: #003E3D;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    border: 1px solid aquamarine;
+    position: relative;
+    left: 10px;
+    top: 0;
+}
+
+
+@media screen and (max-width: 768px){
+    .register-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .register-header{
+        margin-right: 0;
+        padding-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .register-form-wrapper{
+        margin-right: 0px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .register-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .register-header{
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .register-form-wrapper{
+        margin-right: 0px;
+        margin-bottom: 20px;
+        padding: 40px;
+        margin-left: 0px;
+    }
+
+    .form-item{
+        width: 200px !important;
+        height: 50px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        border: 1px solid rgb(186, 186, 186);
+        font-size: 1.2rem;
+        padding-left: 10px;
+    }
+}

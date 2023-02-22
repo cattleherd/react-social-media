@@ -1,0 +1,102 @@
+
+{/*custom css for scroll bar when needed*/}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);
+  }
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(215, 215, 215);
+  }
+
+  .title{
+    color: gray;
+
+}
+.search{
+    display: flex;
+}
+
+.search-icon{
+    height: 30px !important;
+    color: #ffffff !important;
+    width: 30px !important;
+}
+
+.search-button{
+    height: 42px;
+    width: 42px;
+    background-color: aquamarine;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.search-button:hover{
+    scale: 105%;
+    transition: 0.2s;
+}
+
+
+
+.friends{
+    background-color: #004233;
+    border: 1px solid aquamarine;
+    border-radius: 15px;
+    margin-top: 80px !important;
+    width: 100%;
+    padding-top: 20px;
+    padding-right: 10px;
+    margin-left: 7px;
+    height: 300px;
+}
+
+.separator{
+    width: 80%;
+    color: aquamarine !important;
+}
+
+.linkitem{
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.linkitem:hover{
+    background-color: #00392d;
+    transition: 250ms;
+}
+
+.links{
+    margin-left: 15px;
+}
+
+.search {
+    margin-left: 15px;
+}
+
+.menu-item{
+    padding-left: 3px !important;
+    color: aquamarine;
+}
+
+.menu-item:hover{
+    color:rgb(0, 144, 96);
+}
+
+.leftbar-container{
+    padding-left: 10px;
+}
+
+.leftbar-icon:hover{
+    scale: 110%;
+    transition: 200ms;
+    opacity: 0.8;
+}
+
+.friendslist{
+    height: 200px;
+    overflow-y: scroll;
+}

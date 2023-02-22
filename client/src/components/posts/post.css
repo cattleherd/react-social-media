@@ -1,0 +1,97 @@
+.postprofileimgtop{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-container{
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 15px;
+    outline: none;
+    padding: 10px;
+    background-color: #004233;
+    border: 1px solid aquamarine;
+
+}
+
+.delete{
+    margin-left: 8px;
+    background-color: aquamarine !important;
+    border: 1px solid rgb(0, 62, 46) !important;
+    color: #004233 !important;
+    border-radius: 8px !important;
+}
+
+.delete:hover{
+    scale: 110%;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.thumbs{
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.thumbs:hover{
+    scale: 120%;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.post-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: middle;
+    color: aquamarine !important;
+
+}
+.post-bottom-left{
+    margin-left: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.post-bottom-right{
+    margin-right: 10px;
+}
+
+.postimg{
+    border-radius: 10px;
+    max-width: 98%; {/*max image size is 90% of div size*/}
+   
+}
+
+.title{
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: aquamarine !important;
+}
+
+
+.post-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.post-top{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    color: aquamarine;
+}
+
+.post-top-item{
+    vertical-align: middle;
+}
+
+.post-top-item.date{
+    margin-right: 70px;
+    font-size: 12px !important;
+}
