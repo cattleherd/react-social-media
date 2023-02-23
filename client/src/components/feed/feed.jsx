@@ -39,7 +39,7 @@ export default function Feed({userId}){
                 ))) 
                 : 
                 (<div className='firstpost'>
-                    <h1>Create your first post</h1>
+                    <h1 style={{color:'aquamarine'}}>Create your first post</h1>
                 </div>)}
             </div>
         </div>

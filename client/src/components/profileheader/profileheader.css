@@ -11,7 +11,7 @@
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: solid 5px white !important;
+    border: solid 5px aquamarine !important;
 
     /*best way to center the profile pic was to set margin left and right auto*/
     margin-left: auto;
@@ -22,6 +22,8 @@
 .profile-name{
     text-align: middle;
     font-size: 1.5rem;
+    color: aquamarine;
+    margin-top: 10px;
 }
 
 .coverpiclabel{

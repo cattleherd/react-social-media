@@ -42,14 +42,14 @@
 
 .friends{
     background-color: #004233;
-    border: 1px solid aquamarine;
+    border: 1px solid rgb(0, 61, 41);
     border-radius: 15px;
     margin-top: 80px !important;
     width: 100%;
     padding-top: 20px;
-    padding-right: 10px;
-    margin-left: 7px;
     height: 300px;
+    box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.11);
+
 }
 
 .separator{
@@ -88,6 +88,9 @@
 
 .leftbar-container{
     padding-left: 10px;
+    border: 1px solid rgb(0, 117, 78);
+    border-radius: 20px;
+    background-color: #004e3b;
 }
 
 .leftbar-icon:hover{
@@ -99,4 +102,8 @@
 .friendslist{
     height: 200px;
     overflow-y: scroll;
+}
+
+.friends{
+    background-color: #00503d !important;
 }

@@ -8,6 +8,21 @@
     height: 40px;
 }
 
+.friendsicon:hover{
+    transition: 250ms;
+    scale: 110%;
+}
+
+.messengericon{
+    width: 40px;
+    height: 40px;
+}
+
+.messengericon:hover{
+    scale: 110%;
+    transition: 250ms;
+}
+
 /*make nav sticky top*/
 .Topbar-container{
     display: flex;
@@ -148,7 +163,17 @@ input::-webkit-input-placeholder {
     .messengerlogout{
         margin-right: 15%;
     }
+  }
 
+  @media screen and (min-width: 720px){
+
+    .messengericon{
+        display: none;
+    }
+
+    .friendsicon{
+        display: none;
+    }
   }
 
 

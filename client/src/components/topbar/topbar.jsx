@@ -40,6 +40,13 @@ export default function Topbar({ home, profile, messenger }) {
             </div>
           </a>
         </div>
+        <Link to="/messages">
+          <img
+            className="messengericon"
+            alt="friendsicon"
+            src="/assets/messenger.png"
+          />
+        </Link>
       </div>
       {/* style login button responsiveness of topbar wether topbar rendered on homepage, or messenger page*/}
       <div
@@ -56,6 +63,7 @@ export default function Topbar({ home, profile, messenger }) {
             className="friendsicon"
             alt="friendsicon"
             src="/assets/friends.png"
+            style={{cursor: 'pointer'}}
           />
         </label>
         <Hamburger />
