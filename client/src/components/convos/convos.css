@@ -15,7 +15,6 @@
 
 .convoContainer:hover{
     background-color: rgba(170, 170, 170, 0.15);
-    scale: 105%;
     transition: 200ms;
     border-radius: 10px;
     cursor: pointer;
@@ -41,7 +40,7 @@
     margin-right: 20px;
 }
 .convoFriend{
-    color: gray;
+    color: aquamarine;
     font-weight: 400;
 }
 

@@ -48,25 +48,33 @@ export default function Topbar({ home, profile, messenger }) {
           />
         </Link>
       </div>
-      {/* style login button responsiveness of topbar wether topbar rendered on homepage, or messenger page*/}
-      <div
-        className={
-          home || profile
-            ? `center homeandprofile`
-            : messenger
-            ? "center messengerlogout"
-            : "center"
-        }
-      >
-        <label htmlFor="react-burger-menu-btn">
-          <img
-            className="friendsicon"
-            alt="friendsicon"
-            src="/assets/friends.png"
-            style={{cursor: 'pointer'}}
-          />
-        </label>
-        <Hamburger />
+      {/* either show friends list or active convos whether your on messenger page*/}
+      <div className="center homeandprofile">
+        {messenger ? (
+          <>
+            <label htmlFor="react-burger-menu-btn">
+              <img
+                className="friendsicon"
+                alt="friendsicon"
+                src="/assets/friends.png"
+                style={{ cursor: "pointer" }}
+              />
+            </label>
+          </>
+        ) : (
+          <>
+            <label htmlFor="react-burger-menu-btn">
+              <img
+                className="friendsicon"
+                alt="friendsicon"
+                src="/assets/friends.png"
+                style={{ cursor: "pointer" }}
+              />
+            </label>
+            <Hamburger />
+          </>
+        )}
+
         <Logoutbutton />
       </div>
     </div>

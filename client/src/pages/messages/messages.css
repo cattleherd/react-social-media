@@ -1,10 +1,11 @@
 .messenger{
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
     padding: 10px;
-    height: calc(100vh - 50px);
+    height: 100vh;
     min-width: 340px;
     /*overflow-x: hidden !important;*/
+    background-color: #004233;
 }
 
 
@@ -30,6 +31,7 @@
     padding-bottom: 20px;
     padding-right: 5px;
     min-width: 200px;
+    border: 1px solid rgb(0, 76, 51);
     
 }
 
@@ -38,15 +40,12 @@
 }
 
 .selectmessage{
-    color: gray;
+    color: aquamarine;
     opacity: 0.5;
     margin-top: 20%;
     padding: 20px;
 }
 
-.selectmessage2{
-    display: none;
-}
 
 
 .chatOnlineWrapper{
@@ -70,6 +69,10 @@
     padding-bottom: 40px;
 }
 
+.convoWrapper2{
+    height: 80%;
+    overflow-y: scroll;
+}
 
 @media screen and (max-width: 720px){
 

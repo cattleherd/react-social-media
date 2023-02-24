@@ -7,7 +7,7 @@
     width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(215, 215, 215);
+    background-color: aquamarine;
   }
 
   .title{
