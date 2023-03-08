@@ -47,7 +47,7 @@ export default function Share({user, rerender}){
     //resets preview state to initial state so image preview is cleared.
     async function handlesubmitfile(e){
         e.preventDefault()
-        if(!preview) alert('please attach a photo, this is radsocial not radtwitter');
+        if(!preview) alert('please attach a photo');
         try{
             uploadImage(preview)
             //removes preview image
