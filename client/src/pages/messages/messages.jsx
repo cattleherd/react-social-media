@@ -437,9 +437,15 @@ export default function Message() {
               <>
                 <h1
                   className="selectmessage2"
+                  style={{ color: "aquamarine", marginTop: "50%", display:'hidden' }}
+                >
+                  Select the friends icon in the top right to view conversations
+                </h1>
+                <h1
+                  className="selectmessage"
                   style={{ color: "aquamarine", marginTop: "50%" }}
                 >
-                  Select a conversation to view in top right
+                  Select a friend on the left to start a conversation
                 </h1>
               </>
             )}
