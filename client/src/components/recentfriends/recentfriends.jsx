@@ -43,8 +43,8 @@ export default function Recentfriends({ id }){ //id is a prop passed from friend
             </li>) 
             : 
             (<div style={{display:'flex',justifyContent:'space-around',alignItems:"center"}}>
-                <Skeleton circle width={40} height={40}/>
-                <Skeleton width={100}/>
+                <Skeleton circle width={40} height={40} baseColor={'aquamarine'}/>
+                <Skeleton width={100} baseColor='aquamarine'/>
             </div>
             )}
 

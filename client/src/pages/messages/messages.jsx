@@ -315,7 +315,7 @@ export default function Message() {
       <div className="messagesContainer">
         <div className="messenger">
           <div className="convoWrapper">
-            <span style={{ color: "gray" }}>Friends List</span>
+            <span style={{ color: "aquamarine" }}>Friends List</span>
             <hr className="separator" />
             {Conversations ? (
               Conversations.map((e, i) => (
@@ -335,7 +335,64 @@ export default function Message() {
                 </div>
               ))
             ) : (
-              <Skeleton count={5} />
+              <>
+              <div style={{display:'flex', flexDirection:'row', marginLeft:'20px', marginBottom:'20px'}}>
+                  <Skeleton
+                    circle
+                    width={46}
+                    height={46}
+                    baseColor={"aquamarine"}
+                  />
+                  <Skeleton
+                    baseColor="aquamarine"
+                    style={{ marginTop: "22px", marginBottom: "6px", marginLeft:'20px' }}
+                    height={10}
+                    width={100}
+                  />
+              </div>
+              <div style={{display:'flex', flexDirection:'row', marginLeft:'20px', marginBottom:'20px'}}>
+                  <Skeleton
+                    circle
+                    width={46}
+                    height={46}
+                    baseColor={"aquamarine"}
+                  />
+                  <Skeleton
+                    baseColor="aquamarine"
+                    style={{ marginTop: "22px", marginBottom: "6px", marginLeft:'20px' }}
+                    height={10}
+                    width={100}
+                  />
+              </div>
+              <div style={{display:'flex', flexDirection:'row', marginLeft:'20px', marginBottom:'20px'}}>
+                  <Skeleton
+                    circle
+                    width={46}
+                    height={46}
+                    baseColor={"aquamarine"}
+                  />
+                  <Skeleton
+                    baseColor="aquamarine"
+                    style={{ marginTop: "22px", marginBottom: "6px", marginLeft:'20px' }}
+                    height={10}
+                    width={100}
+                  />
+              </div>
+              <div style={{display:'flex', flexDirection:'row', marginLeft:'20px', marginBottom:'20px'}}>
+                  <Skeleton
+                    circle
+                    width={46}
+                    height={46}
+                    baseColor={"aquamarine"}
+                  />
+                  <Skeleton
+                    baseColor="aquamarine"
+                    style={{ marginTop: "22px", marginBottom: "6px", marginLeft:'20px' }}
+                    height={10}
+                    width={100}
+                  />
+              </div>
+              </>
             )}
           </div>
           <div className="messageWrapper">
@@ -378,8 +435,10 @@ export default function Message() {
               </>
             ) : (
               <>
-                <h1 className="selectmessage">Select a conversation to view</h1>
-                <h1 className="selectmessage2" style={{color: 'aquamarine'}}>
+                <h1
+                  className="selectmessage2"
+                  style={{ color: "aquamarine", marginTop: "50%" }}
+                >
                   Select a conversation to view in top right
                 </h1>
               </>

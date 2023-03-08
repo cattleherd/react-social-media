@@ -14,11 +14,13 @@
 }
 
 .convoWrapper{
-    background-color: #fcfcfc;
-    box-shadow:  2px 5px 15px 5px rgba(0,0,0,0.11);
+    background-color: #003a2d;
+    border: 1px solid rgb(0, 61, 41);
     border-radius: 15px;
-    margin: 20px;
+    border: 0.5px solid rgb(0, 107, 71);
     width: 250px;
+    overflow-y: scroll;
+    margin-right: 20px;
 
 }
 

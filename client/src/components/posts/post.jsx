@@ -72,9 +72,9 @@ export default function Posts({id,post,rerender}){
                     <div className="wrapper">
                         <div className="post-top">
                             <div className="post-top-left">
-                                <a href={`/profile/${id}`}>
-                                    <img className="post-top-item postprofileimgtop" src={profileimg} alt="" />
-                                </a>
+                                    <a href={`/profile/${id}`}>
+                                        <img className="post-top-item postprofileimgtop" src={profileimg} alt="" />
+                                    </a>
                                 <span className="post-top-item username">{user && user.username}</span>
                                 <br/>
                                 <span style={{fontSize:'13px', textAlign:'start'}} className="post-top-item date">{moment(post.createdAt).fromNow()}</span>
