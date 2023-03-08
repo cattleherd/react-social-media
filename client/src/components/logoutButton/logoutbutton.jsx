@@ -7,11 +7,13 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Logoutbutton(){
 
+const navigate = useNavigate()
+
 const url = `/users/api/logout`
 
 function handleLogout(){
     axios.get(url).then(res=>{
-        window.location.reload(false);
+        navigate('/login')
     })
 }
 
