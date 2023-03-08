@@ -71,7 +71,7 @@ export default function Hamburger({ profile }) {
               /* then checks if the user is followed or not, conditionally rendering follow or unfollow button  */
               !currentUser.followingCount.includes(profile.id) ? (
                 <Button
-                  style={{ width: "100%", marginTop: "30px" }}
+                  style={{ width: "100%", marginTop: "30px", backgroundColor: 'aquamarine', color:'#004233'}}
                   className="followbutton"
                   variant="primary"
                   onClick={follow}
@@ -80,9 +80,8 @@ export default function Hamburger({ profile }) {
                 </Button>
               ) : (
                 <Button
-                  style={{ width: "100%", marginTop: "30px" }}
+                  style={{ width: "100%", marginTop: "30px", backgroundColor: 'aquamarine', color:'#004233' }}
                   className="followbutton"
-                  variant="primary"
                   onClick={unfollow}
                 >
                   unfollow

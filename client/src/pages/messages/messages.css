@@ -39,6 +39,11 @@
     margin-top: 0;
 }
 
+.text{
+    background-color: #003025;
+    color: aquamarine;
+}
+
 .selectmessage{
     color: aquamarine;
     opacity: 0.5;

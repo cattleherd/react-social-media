@@ -69,7 +69,6 @@ export default function Posts({id,post,rerender}){
         <>
             <div className="post-container">
                 {/* conditional rendering of element based on if there is an associated user with the post id, took a while to get right */}
-                {profileimg !==undefined &&
                     <div className="wrapper">
                         <div className="post-top">
                             <div className="post-top-left">
@@ -100,7 +99,6 @@ export default function Posts({id,post,rerender}){
                             </div>
                         </div>
                     </div>
-                }
             </div>
         
     </>
