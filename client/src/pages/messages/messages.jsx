@@ -443,7 +443,7 @@ export default function Message() {
                 </h1>
                 <h1
                   className="selectmessage"
-                  style={{ color: "aquamarine", marginTop: "50%" }}
+                  style={{ color: "aquamarine", marginTop: "20%" }}
                 >
                   Select a friend on the left to start a conversation
                 </h1>
