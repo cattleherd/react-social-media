@@ -29,13 +29,13 @@ export default function Login() {
       }).then((res) => {
         $(".lock-top, .lock-body, .lock-spinner").removeClass("loading");
         $(".lock-top, .lock-body, .lock-spinner").addClass("loaded");
-        fetchUser();
-        setTimeout(function() {
-            navigate("/");
-          }, 1000);
+        setTimeout(function () {
+          fetchUser();
+          navigate("/");
+        }, 2000);
       });
     } catch (err) {
-        $(".lock-top, .lock-body, .lock-spinner").removeClass("loading");
+      $(".lock-top, .lock-body, .lock-spinner").removeClass("loading");
       console.log(err);
     }
   };
@@ -51,24 +51,21 @@ export default function Login() {
     LoginUser(userCredentials);
   };
 
-  // make your ajax call here instead of the timeout
-  /*setTimeout(function(){
-        $('.lock-top, .lock-body, .lock-spinner').toggleClass('loading').then(()=>{
-            console.log('lol')
-        });
-        $('.lock-top').toggleClass('loaded').then(()=>{
-            console.log('lol')
-        });
-      }, 1000)
-      */
-
   return (
     <div className="login-container">
       <div className="login-wrapper">
         <div className="login-header">
           <h3 className="slogan">Radsocial</h3>
           <div className="circle"></div>
-          <p style={{color: 'aquamarine', fontSize:'medium', marginTop:'10px'}}>Because your privacy matters</p>
+          <p
+            style={{
+              color: "aquamarine",
+              fontSize: "medium",
+              marginTop: "10px",
+            }}
+          >
+            Because your privacy matters
+          </p>
         </div>
         <div className="login-form">
           <div className="login-form-wrapper">
