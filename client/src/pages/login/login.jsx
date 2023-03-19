@@ -68,7 +68,7 @@ export default function Login() {
         <div className="login-header">
           <h3 className="slogan">Radsocial</h3>
           <div className="circle"></div>
-          <p style={{color: 'aquamarine', fontSize:'medium'}}>Because your privacy matters</p>
+          <p style={{color: 'aquamarine', fontSize:'medium', marginTop:'10px'}}>Because your privacy matters</p>
         </div>
         <div className="login-form">
           <div className="login-form-wrapper">
