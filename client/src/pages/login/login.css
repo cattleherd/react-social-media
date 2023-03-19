@@ -1,14 +1,19 @@
+.login-container{
+    background-color: #002920;
+    overflow: hidden;
+
+}
+
 .login-header{
     margin-right: 50px;
 }
 
 .login-wrapper{
-    height: 100vh;
-    width: 100vw;
     display: flex;
     align-items: center;
+    height: 100vh;
     justify-content: center;
-    background-color: #002920;
+    margin-bottom: 50px;
 }
 
 .login-form-wrapper{
@@ -17,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #004233;
-    padding: 50px;
+    padding: 35px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.11);
     margin-left: 50px;
@@ -98,10 +103,74 @@
 }
 
 
+.lockwrapper {
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    margin-bottom: 50px;
+    margin-left: 95px;
+  }
+
+  .lock-top{
+    fill: none;
+    stroke: #006049;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 300;
+    stroke-dashoffset: -30;
+    transition: all 300ms ease-out;
+  }
+  .lock-top.loaded {
+    stroke-dashoffset: 0;
+    stroke: #0fff3f
+  }
+  .lock-top.loaded ~ .lock-body {
+    fill: #0fff3f;
+  }
+  .lock-top.loading {
+    stroke: #000;
+    opacity: 0.3;
+  }
+  
+  .lock-outline{
+    fill: #1bae9b;
+  }
+  .lock-body {
+    fill: #006049;
+    opacity: 1;
+    transition: all 300ms ease-out;
+  }
+  .lock-body.loading{
+    fill: #000 !important;
+    opacity: 0.3;
+  }
+  
+  .lock-spinner {
+    fill: none;
+    stroke: #000;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .lock-spinner.loading{
+    opacity: 1;
+  }
+
+
+
+
+
+
 @media screen and (max-width: 768px){
+
     .login-wrapper{
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .login-header{
@@ -117,6 +186,8 @@
 }
 
 @media screen and (max-width: 430px){
+    
+
     .login-wrapper{
         display: flex;
         flex-direction: column;

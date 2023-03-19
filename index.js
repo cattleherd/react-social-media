@@ -19,6 +19,8 @@ const conversationRoutes = require('./Routes/Conversations')
 const app = express();
 const { Server }  = require('socket.io')
 
+mongoose.Promise = global.Promise;
+
 const http = require('http')
 
 const server = http.createServer(app)
