@@ -30,7 +30,9 @@ export default function Login() {
         $(".lock-top, .lock-body, .lock-spinner").removeClass("loading");
         $(".lock-top, .lock-body, .lock-spinner").addClass("loaded");
         fetchUser();
-        navigate("/");
+        setTimeout(function() {
+            navigate("/");
+          }, 1000);
       });
     } catch (err) {
         $(".lock-top, .lock-body, .lock-spinner").removeClass("loading");
