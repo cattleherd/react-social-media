@@ -28,8 +28,7 @@
     .leftbar{
         display: block;
         min-width: 250px;
-        margin-top: 50px;
-        padding: 10px;
+        height: 100%;
     }
 
   }
