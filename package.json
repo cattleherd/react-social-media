@@ -61,7 +61,7 @@
     "configstore": "^5.0.1",
     "connect": "^3.7.0",
     "connect-ensure-login": "^0.1.1",
-    "connect-mongo": "^4.6.0",
+    "connect-mongo": "^5.0.0",
     "console-control-strings": "^1.1.0",
     "constantinople": "^4.0.1",
     "content-disposition": "^0.5.4",
