@@ -82,16 +82,17 @@ app.use(passport.session());
 
 //to use with session. This is the serialize and deserialize user method from passport-local-mongoose
 passport.serializeUser(function (user, cb) {
-    cb(null, user.id);
-  });
-  passport.deserializeUser(function (id, cb) {
-    User.findById(id, function (err, user) {
-      if (err) {
-        return cb(err);
-      }
-      cb(null, user);
-    });
-  });
+  cb(null, user.id);
+});
+
+passport.deserializeUser(async function (id, cb) {
+  try {
+    const user = await User.findById(id);
+    cb(null, user);
+  } catch (err) {
+    cb(err);
+  }
+});
 
 
 //function for verifying req.body pass with the hash
